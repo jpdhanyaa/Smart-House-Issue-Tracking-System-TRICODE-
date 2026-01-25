@@ -1,0 +1,1 @@
+# Smart-House-Issue-Tracking-System-TRICODE-
