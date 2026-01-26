@@ -1,12 +1,27 @@
-exports.createComplaint=(req,res)=>{
-    const studentName=req.body.studentName
-    const issueTitle=req.body.issueTitle
-    const description=req.body.description
+const db = require("../config/db")
 
-    const newComplaint={
-        studentName,
-        issueTitle,
-        description
+exports.createComplaint = (req, res) => {
+  const { title, description, category_id, priority, reported_by } = req.body
+
+  const sql = `
+    INSERT INTO issues 
+    (title, description, category_id, priority, reported_by)
+    VALUES (?, ?, ?, ?, ?)
+  `
+
+  db.query(
+    sql,
+    [title, description, category_id, priority, reported_by],
+    (err, result) => {
+      if (err) {
+        console.error(err)
+        return res.status(500).json({ message: "Database error" })
+      }
+
+      res.status(201).json({
+        message: "Complaint registered successfully",
+        issue_id: result.insertId
+      })
     }
-    res.send("Complaint recived successfully")
+  )
 }
