@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hostel Issue Tracker</title>
+    </head>
+    <body>
+        <h1>Smart Hostel Issue Tracking System</h1>
+        
+        <form method="POST" action="/complaints">
+            <label>Student Name:</label><br />
+            <input type="text" /><br /><br />
+
+            <label>Issue Title:</label><br />
+            <input type="text" /><br /><br />
+
+            <label>Description:</label><br />
+            <textarea></textarea><br /><br />
+
+            <button type="submit">Submit Complaint</button>
+        </form>
+        <p id="message"></p>
+    </body> 
+    <script>
+        const form=document.querySelector("form")
+        const message=document.getElementById("submit",()=>{
+            message.textContent="Complaint Submitted successfully!"
+        })
+    </script> 
+</html>
