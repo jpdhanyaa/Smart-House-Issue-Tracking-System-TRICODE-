@@ -14,12 +14,12 @@ app.get("/api/test", (req, res) => {
 });
 
 app.post("/complaints", (req, res) => {
-  const { studentName, issueTitle, description } = req.body;
-
-  console.log("Complaint received:");
-  console.log(studentName, issueTitle, description);
-
+  console.log(req.body);
   res.send("Complaint received successfully");
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 app.listen(PORT, () => {
