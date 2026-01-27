@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hostel Issue Tracker</title>
-    </head>
-    <body>
-        <h1>Smart Hostel Issue Tracking System</h1>
-        
-        <form method="POST" action="/complaints">
+<head>
+  <title>Smart Hostel Complaint</title>
+</head>
+<body>
 
-            <label>Student Name:</label><br />
-            <input type="text" /><br /><br />
+  <h2>Register a Complaint</h2>
 
-            <label>Issue Title:</label><br />
-            <input type="text" /><br /><br />
+  <form id="complaintForm">
+    <input type="text" id="title" placeholder="Issue Title" required><br><br>
 
-            <label>Description:</label><br />
-            <textarea></textarea><br /><br />
+    <textarea id="description" placeholder="Issue Description" required></textarea><br><br>
 
-            <button type="submit">Submit Complaint</button>
-        </form>
-        <p id="message"></p>
-    </body> 
-    <script>
-        const form=document.querySelector("form")
-        const message=document.getElementById("submit",()=>{
-            message.textContent="Complaint Submitted successfully!"
-        })
-    </script> 
+    <select id="category">
+      <option value="1">Plumbing</option>
+      <option value="2">Electrical</option>
+      <option value="3">Cleanliness</option>
+      <option value="4">Internet</option>
+    </select><br><br>
+
+    <select id="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+      <option value="Emergency">Emergency</option>
+    </select><br><br>
+
+    <button type="submit">Submit Complaint</button>
+  </form>
+
+  <p id="response"></p>
+
+  <script src="script.js"></script>
+
+</body>
 </html>
