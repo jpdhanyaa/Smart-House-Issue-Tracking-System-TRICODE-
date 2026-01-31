@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<nav class="bg-blue-600 p-4 text-white flex justify-between">
+  <h1 class="font-bold text-xl">Smart Hostel Dashboard</h1>
+  <button onclick="logout()">Logout</button>
+</nav>
+
+<div class="p-6 grid md:grid-cols-3 gap-6">
+  <a href="complaint.html" class="bg-white p-6 rounded shadow hover:shadow-lg">
+    <h2 class="text-xl font-bold">Raise Complaint</h2>
+    <p class="text-gray-600">Report hostel issues</p>
+  </a>
+
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold">Status</h2>
+    <p class="text-green-600">Active</p>
+  </div>
+</div>
+
+<script src="authGuard.js"></script>
+<script>
+function logout() {
+  localStorage.clear();
+  window.location.href = "login.html";
+}
+</script>
+</body>
+</html>

@@ -1,27 +1,24 @@
-const db = require("../config/db")
+const db = require("../config/db");
 
 exports.createComplaint = (req, res) => {
-  const { title, description, category_id, priority, reported_by } = req.body
+  const { title, description, category, priority, user_id } = req.body;
 
-  const sql = `
-    INSERT INTO issues 
-    (title, description, category_id, priority, reported_by)
-    VALUES (?, ?, ?, ?, ?)
-  `
+  if (!title || !description || !user_id)
+    return res.status(400).json({ message: "All fields required" });
 
   db.query(
-    sql,
-    [title, description, category_id, priority, reported_by],
-    (err, result) => {
-      if (err) {
-        console.error(err)
-        return res.status(500).json({ message: "Database error" })
-      }
-
-      res.status(201).json({
-        message: "Complaint registered successfully",
-        issue_id: result.insertId
-      })
+    "INSERT INTO complaints (title, description, category, priority, user_id) VALUES (?, ?, ?, ?, ?)",
+    [title, description, category, priority, user_id],
+    (err) => {
+      if (err) return res.status(500).json({ message: "Database error" });
+      res.json({ message: "Complaint submitted" });
     }
-  )
-}
+  );
+};
+
+exports.getComplaints = (req, res) => {
+  db.query("SELECT * FROM complaints", (err, result) => {
+    if (err) return res.status(500).json({ message: "Database error" });
+    res.json(result);
+  });
+};

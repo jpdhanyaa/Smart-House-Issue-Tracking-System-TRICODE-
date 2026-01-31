@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Complete Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+<div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-xl">
+  <h2 class="text-2xl font-bold mb-6 text-center">Complete Hostel Registration</h2>
+
+  <form class="space-y-4">
+    <select id="hostel" class="w-full p-3 border rounded" required>
+      <option value="">Select Hostel</option>
+      <option value="Alpha">Alpha</option>
+      <option value="Beta">Beta</option>
+    </select>
+
+    <input id="block_name" placeholder="Block"
+      class="w-full p-3 border rounded" required>
+
+    <input id="room_no" placeholder="Room Number"
+      class="w-full p-3 border rounded" required>
+
+    <button class="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700">
+      Complete Registration
+    </button>
+  </form>
+</div>
+
+<script src="regHostel.js"></script>
+</body>
+</html>

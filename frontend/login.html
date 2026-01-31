@@ -1,94 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Portal Login - HostelAdmin</title>
-
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet"/>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#607AFB",
-            "background-light": "#f5f6f8"
-          },
-          fontFamily: {
-            display: "Manrope"
-          }
-        }
-      }
-    };
-  </script>
-
-  <style>
-    body {
-      font-family: 'Manrope', sans-serif;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Login | Smart Hostel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-<body class="bg-background-light text-slate-900 overflow-hidden">
+<div class="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
+  <h2 class="text-3xl font-bold text-center mb-6 text-blue-600">Smart Hostel</h2>
 
-<div class="flex h-screen w-full">
+  <form id="loginForm" class="space-y-4">
+    <input id="email" type="email" placeholder="Email"
+      class="w-full border p-3 rounded" required>
 
-  <!-- Left Image Section -->
-  <div class="hidden lg:block lg:w-1/2 relative">
-    <div class="absolute inset-0 bg-blue-900/20 z-10"></div>
-    <img class="absolute inset-0 w-full h-full object-cover"
-         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA4MiIChiEqgyJxLlyCPr6kI5Wrlb_qzNhdwWoUBvAT0s9I2TUw9eBgp-W0V-V3gLgGqnbPvPV109R-QdxjhdLAvsgHhgSlCstfY9Co9EhGkD12hri4W0ORo_YZwc0KfD7G3J60dWmJel9l-OkJcKTccjaznDPr7-_btQpEwrHULag_rnlM0K2w-hymb5WPqBMSO0WWxy5wzCy62n3Ib_LhXgd3PkkvafOmvZVzEt1rmI9BD5Fi-j_FpBCvCB1jI8rSnAgyBinYX0"/>
-  </div>
+    <input id="password" type="password" placeholder="Password"
+      class="w-full border p-3 rounded" required>
 
-  <!-- Right Login Section -->
-  <div class="w-full lg:w-1/2 flex flex-col justify-center px-10">
-
-    <div class="max-w-md mx-auto w-full">
-
-      <h2 class="text-2xl font-extrabold mb-2">Sign In</h2>
-      <p class="text-slate-500 mb-6">Login to access dashboard</p>
-
-      <!-- 🔑 LOGIN FORM -->
-      <form class="space-y-6">
-
-        <div>
-          <label class="block text-sm font-bold mb-1">Email</label>
-          <input
-            id="email"
-            type="email"
-            required
-            class="w-full px-4 py-3 rounded-lg border bg-slate-50"
-            placeholder="student@test.com">
-        </div>
-
-        <div>
-          <label class="block text-sm font-bold mb-1">Password</label>
-          <input
-            id="password"
-            type="password"
-            required
-            class="w-full px-4 py-3 rounded-lg border bg-slate-50"
-            placeholder="password123">
-        </div>
-
-        <button
-          type="submit"
-          class="w-full bg-primary text-white py-3 rounded-lg font-bold">
-          Sign In
-        </button>
-
-      </form>
-
+    <div class="flex items-center gap-2">
+      <input type="checkbox" id="remember-me">
+      <label class="text-sm">Remember me</label>
     </div>
-  </div>
+
+    <button class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700">
+      Login
+    </button>
+  </form>
 </div>
 
-<!-- ✅ LINK LOGIN JS -->
-<script src="script.js"></script>
-
+<script src="auth.js"></script>
 </body>
 </html>
